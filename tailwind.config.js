@@ -14,7 +14,7 @@ const config = {
         grey:'#ECE8E1',
         blue:'#0F1923',
         black:'	#111111',
-        blackGrey:'#383e3a',
+        blackGrey:'#292929',
       }
     },
   },

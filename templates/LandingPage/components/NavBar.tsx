@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import {motion, AnimatePresence} from 'framer-motion'
 import { BsGrid3X3GapFill, BsList } from 'react-icons/bs';
-import NavbarItem from "./components/NavBarItem";
+import NavbarItem from "./NavBarItem";
 
 const Navbar = () => {
     const [navbarOpen, isNavBarOpen] = useState(false);
@@ -38,31 +38,38 @@ const Navbar = () => {
     const navContainer ={
       visible: {
         opacity:1,
+        x:0,
         transition: {
-          x: {valocity: 100},
-          duration: 0.3
+          duration: 0.3,
+          ease:"easeOut"
         }
       },
       hidden: {
         opacity:0,
+        x:"-100%",
         transition:{
-          x:{velocity: 100},
-          duration: 0.3
+          duration: 0.3,
+          ease:"easeIn"
+
         }
       }
     };
   return (
-    <div className="relative">
-        <BsGrid3X3GapFill onClick={toggleNavbar} className="fixed text-white font-lg m-5 z-100" size = '30px'/>
+    <div className="relative z-10">
+        <div className="fixed rounded-full h-[40px] w-[40px] flex items-center justify-center m-11 bg-black">
+        <BsGrid3X3GapFill onClick={toggleNavbar} className="fixed text-white font-lg" size = '30px'/>
+        </div>
         <AnimatePresence>
         {navbarOpen ? (
         <motion.div 
-          className="fixed top-0 left-0 right-0 max-w-[200px] h-full bg-white"
+          className="fixed top-0 left-0 w-[70px] h-[90vh] bg-black rounded-full m-7"
           initial="hidden"
           animate={navbarOpen  ? "visible" : "hidden"}
           exit="hidden"
-          variants={navContainer}          >
-        <BsList onClick={toggleNavbar} className="m-5"   size = '30px'/>
+          variants={navContainer} >
+        <div className="rounded-full h-[40px] w-[40px] flex items-center justify-center m-4 bg-white">
+          <BsList onClick={toggleNavbar} size = '30px'/>
+        </div>
        <NavbarItem />
         </motion.div>
 
