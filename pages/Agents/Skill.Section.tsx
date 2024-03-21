@@ -27,7 +27,7 @@ const SkillSection:React.FC<Skill> =({abilities})=>{
                     <div className="flex justify-center gap-5 py-11">
                     {abilities.map((item)=>(
                         <>
-                            <div key={item.slot}>
+                            <div key={item.slot} className='cursor-pointer'>
                             <motion.div
                                 onClick={() => handleDesc(item.description)}
                                 className={twMerge(
@@ -42,12 +42,14 @@ const SkillSection:React.FC<Skill> =({abilities})=>{
                             </div>
                         </>
                     ))}
-                    <div className='max-w-[600px] border-2 border-white p-4 rounded-lg'>
-                        <h1 className='text-white text-lg font-semibold p-2'>Abilities</h1>
-                        <div className="bg-white h-[1px] w-full mx-3 "></div>
-                        <h1 className="text-white p-2">{desc}</h1>
                     </div>
-                    </div>
+                    {desc && (
+                        <div className='max-w-[600px] border-2 border-white p-4 rounded-lg mx-auto'>
+                            <h1 className='text-white text-lg font-semibold p-2'>Abilities</h1>
+                            <div className="bg-white h-[1px] w-full mx-3 "></div>
+                            <h1 className="text-white p-2">{desc}</h1>
+                        </div>
+                    )}
 
             </div>
         </div>

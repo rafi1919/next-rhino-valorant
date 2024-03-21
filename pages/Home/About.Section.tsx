@@ -46,29 +46,36 @@ const AboutSection = () => {
 
 
     return (
-        <div className="w-full h-[80vh]">
-            <div className='max-w-[80vw] mx-[auto]'>
-                <div className='mt-7 flex justify-between items-center'>
-                    <h3 className='text-red text-[5vw] p-0 font-thin'>ARTIKEL TERBARU</h3>
-                    <RoundedButton text='Lihat semua artikel'/>
-                </div>  
-                <div className=" md:grid grid-cols-3 flex flex-row relative md:gap-3 gap-1 overflow-x-auto">
+        <div className="w-full h-[100vh]">
+            <div className='max-w-[1000px] mx-[auto] px-6'>
+               
+                <div className=" md:grid grid-cols-3 flex flex-row relative md:gap-3 gap-1 py-10  overflow-x-auto">
                     {events.slice(0,3).map(events=> (
-                        <div key={events.id} >
-                            <div className="bg-red w-[350px] md:w-full md:max-h-[250px] border-4  border-blue">
-                                    <img
-                                        src={events.banner.url}
-                                        alt="Event"
-                                        className="object-cover w-fit  transition duration-300 ease-in-out transform hover:opacity-30"
-                                    />
+                        <motion.div key={events.id}
+                            initial={{y:0}}
+                            whileHover={{y:-30}}
+                            className='cursor-pointer	'
+                            >
+                            <div className='shadow-xl shadow-black h-full'>
+                                    <div className="bg-red w-[350px] md:w-full border-4 border-blue">
+                                            <img
+                                                src={events.banner.url}
+                                                alt="Event"
+                                                className="object-cover w-fit  transition duration-300 ease-in-out transform hover:opacity-30"
+                                            />
+                                    </div>
+                                    <div className='px-3 py-6'>
+                                        <p className="text-sm text-blackGrey font-medium py-2 ">{dayjs(events.date).format('DD/MM/YYYY')} . <span className="text-red">{events.category.map(tag => tag.title).join(', ')}</span></p>
+                                        <h5 className="text-2xl text-blackGrey font-bold">{events.title}</h5>
+                                    </div>
                             </div>
-                            <p className="text-sm text-blackGrey font-medium py-2 mt-4">{dayjs(events.date).format('DD/MM/YYYY')} . <span className="text-red">{events.category.map(tag => tag.title).join(', ')}</span></p>
-                            <h5 className="text-2xl text-blackGrey font-bold">{events.title}</h5>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
-
-
+                 <div className='mt-7 flex justify-between items-center'>
+                    <h3 className='text-red text-[5vw] p-0 font-thin'>ARTIKEL TERBARU</h3>
+                    <RoundedButton text='Lihat semua artikel' link='/News'/>
+                </div>  
             </div>
         </div>
     );

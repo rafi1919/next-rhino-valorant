@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const RoundedButton:React.FC<ButtonProps> =({className, text, link})=>{
     return(
-        <motion.div className={twMerge(`hover:shadow-md hover:shadow-red flex justify-end items-center gap-x-3 rounded-full w-fit h-fit p-3`, className)}
+        <motion.div className={twMerge(`hover:shadow-md  hover:shadow-red active:shadow-green-500 cursor-pointer flex justify-end items-center gap-x-3 rounded-full w-fit h-fit p-3`, className)}
             initial={{y:0}}
             whileHover={{y:-5}}
             >

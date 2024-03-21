@@ -59,7 +59,7 @@ const Agents=()=>{
                 <div className='col-span-3 overflow-y-auto no-scrollbar h-[100vh] flex flex-col' style={{ overflowY: 'scroll', scrollbarWidth: 'none',  }}>
                     {agents.map((agent, index)=>(
                         <motion.div key={agent.id}
-                                    className={twMerge(`flex`, 
+                                    className={twMerge(`flex cursor-pointer`, 
                                     isActive === agent.uuid? 'text-red pt-0': 'text-white')} 
                                     >
                             <p className='text-2xl font-bold h-fit'>
