@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import LayoutPage from '@/templates/LandingPage/components/Layout';
 import { useGetNewsDetail } from '../hooks';
 
-export default function index() {
+const Index = () => {
   const router = useRouter();
   const { newsId } = router.query;
   const [stateData, setStateData] = useState<any[]>([]);
@@ -41,3 +41,5 @@ export default function index() {
     </>
   );
 }
+
+export default Index;
