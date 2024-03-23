@@ -11,9 +11,9 @@ const MapSection =()=>{
         <div className="w-full h-[100%]">
         <div className="max-w-[80vw] mx-auto">
             <div className="pt-[8%]">
-                <div className="grid grid-cols-12"> {/* Use flexbox with justify-between */}
+                <div className="grid lg:grid-cols-12 md:grid-cols-1"> {/* Use flexbox with justify-between */}
                     <div className="col-span-3">
-                        <div className="w-[300px] h-[300px] bg-white absolute p-4 rounded-xl">
+                        <div className="w-[300px] h-[300px] bg-white absolute p-4 rounded-xl lg:block md:hidden hidden">
 
                         <div className="bg-red w-[100%] h-[50%] rounded-xl">
                         </div>
@@ -21,11 +21,11 @@ const MapSection =()=>{
                         </div>
                     </div>
                     <div className="col-span-6 justify-center flex items-start"> {/* Center content */}
-                        <h3 className='text-black text-[5vw] p-0 font-thin'>MAPS</h3>
+                        <h3 className='text-black text-[5vw] p-0 font-thin'>PETA</h3>
                     </div>
-                    <div className="col-span-3"> {/* Right content */}
-                        <p className="text-blackGrey text-sm">Lebih dari sekadar senjata dan peluru, kamu akan memilih Agen bersenjatakan kemampuan yang adaptif, tangkas, dan mematikan untuk membuktikan keahlian menembakmu. Sejalan dengan berbedanya kepiawaian dalam menembak, begitu pula di sini; tak akan ada Agen dengan karakteristik sama.</p>
-                        <RoundedButton text="Lihat semua map" className="my-4"/>
+                    <div className="col-span-3 flex flex-col  lg:items-left md:items-center items-center"> {/* Right content */}
+                        <p className="text-blackGrey text-sm">Tiap peta adalah panggung tersendiri untuk memamerkan kemampuan berpikir kreatifmu. Semua dirancang sesuai untuk strategi tim, laga spektakuler, dan momen sengit. Perlihatkan kepiawaian yang akan ditiru oleh pemain lain sampai bertahun-tahun mendatang.</p>
+                        <RoundedButton text="Lihat semua peta" className="my-4"/>
                     </div>
                 </div>
             </div>

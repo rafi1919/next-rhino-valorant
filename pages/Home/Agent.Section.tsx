@@ -10,11 +10,11 @@ const AgentSection =()=>{
 
 
     return(
-        <div className="w-full h-[100vh] p-5 bg-black">
+        <div className="w-full md:h-[100vh] h-[100%] p-5 bg-black">
             
-            <div className="bg-white w-[95vw] h-[95vh] mx-auto rounded-xl overflow-y-hidden">
+            <div className="bg-white max-w-[95vw] md:h-[95vh] h-[100%] mx-auto rounded-xl overflow-y-hidden relative">
                 <div className="md:grid flex md:grid-cols-2 lg:grid-cols-2 flex-col-reverse md:mx-6 mx-2 pt-[10%]">
-                    <motion.div className=""
+                <motion.div className="md:absolute block bottom-0"
                      initial={{
                         y: "10vw" // set 100vw to 95vw
                       }}
@@ -34,10 +34,11 @@ const AgentSection =()=>{
                             alt="Picture of the author"
                         />
                     </motion.div>
+                    <div></div>
                     <div className="ml-7">
                     <div className="bg-black w-full h-[1px]"></div>
 
-                        <h3 className='text-black text-[5vw] p-0 font-thin'>AGENTS</h3>
+                        <h3 className='text-black text-[5vw] p-0 font-thin'>AGENT</h3>
                         <div className="max-w-[400px]">
                             <p className="text-blackGrey text-sm">Lebih dari sekadar senjata dan peluru, kamu akan memilih Agen bersenjatakan kemampuan yang adaptif, tangkas, dan mematikan untuk membuktikan keahlian menembakmu. Sejalan dengan berbedanya kepiawaian dalam menembak, begitu pula di sini; tak akan ada Agen dengan karakteristik sama.</p>
                         </div>

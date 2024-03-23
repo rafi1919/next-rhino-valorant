@@ -18,9 +18,9 @@ const NavbarItem = () => {
             link: '/'
         },
         {
-            label: 'About',
+            label: 'News',
             icon: FaInfo,
-            link: '/about'
+            link: '/News'
         },
         {
             label: 'Agent',

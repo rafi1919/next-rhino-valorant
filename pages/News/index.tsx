@@ -42,14 +42,14 @@ export default function Index() {
                 whileHover={{ y: -30 }}
                 className='cursor-pointer	'
               >
-                <div className='hover:shadow-md hover:shadow-red active:shadow-green-500 cursor-pointer h-full grid lg:grid-cols-5 md:grid-rows-1 my-5'>
-                  <div className="col-span-2 bg-red w-[350px] md:w-full border-4 border-blue">
+                <div className='hover:shadow-md hover:shadow-red active:shadow-green-500 cursor-pointer h-full grid grid-cols-5  my-5'>
+                  <div className="lg:col-span-2 md:col-span-5 col-span-5 bg-red w-full border-4 border-blue">
                     <img
                       src={item.banner.url}
                       alt="Event"
-                      className="object-cover w-fit  transition duration-300 ease-in-out transform hover:opacity-30" />
+                      className="object-cover w-full transition duration-300 ease-in-out transform hover:opacity-30" />
                   </div>
-                  <div className='col-span-3 px-3 py-6'>
+                  <div className='lg:col-span-3 md:col-span-5 col-span-5 px-3 py-6'>
                     <p className="text-sm text-blackGrey font-medium py-2 ">{dayjs(item.date).format('DD/MM/YYYY')} . <span className="text-red">{item.category.map((tag: any) => tag.title).join(', ')}</span></p>
                     <h5 className="text-2xl text-blackGrey font-bold">{item.article_type === "Normal article" ? (<Link href={`./News/${item.id}`}>{item.title}</Link>) : (<Link href={item.external_link}>{item.title}</Link>)} </h5>
                   </div>

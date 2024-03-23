@@ -37,7 +37,7 @@ const SkillSection:React.FC<Skill> =({abilities})=>{
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                    <img src={item.displayIcon}  alt={item.displayName} className='w-12 h-12 '/>
+                                    <img src={item.displayIcon}  alt={item.displayName} className='lg:w-12 lg:h-12 md:w-5 md:h-5 '/>
                                 </motion.div>
                             </div>
                         </>

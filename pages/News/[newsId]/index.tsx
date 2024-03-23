@@ -29,7 +29,7 @@ export default function index() {
               <p className='text-[50px] text-blackGrey font-bold'>{stateData[0].description}</p>
               <p className='text-[50px] text-blackGrey font-bold'>{stateData[0].pathSlug}</p>
               {stateData[0]?.article_body?.map((item:any, index:any) => (
-                <div key={index} dangerouslySetInnerHTML={{ __html: item.rich_text_editor.rich_text_editor }} />
+                <div key={index} dangerouslySetInnerHTML={{ __html: item.rich_text_editor.rich_text_editor }} className='my-10' />
               ))}
               {/* Render other details of the article */}
             </>

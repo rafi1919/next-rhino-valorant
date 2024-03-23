@@ -53,23 +53,23 @@ const Agents=()=>{
                 Your browser does not support the video tag.
             </video>
 
-            <div className='max-w-[80vw] mx-auto relative z-10'>
-                <div className='grid grid-cols-7'>
+            <div className='lg:max-w-[80vw] md:w-full w-full mx-auto relative z-10'>
+                <div className='grid lg:grid-cols-7 '>
 
-                <div className='col-span-3 overflow-y-auto no-scrollbar h-[100vh] flex flex-col' style={{ overflowY: 'scroll', scrollbarWidth: 'none',  }}>
+                <div className='lg:col-span-3 md:col-span-7 col-span-7 overflow-y-auto no-scrollbar lg:h-[100vh] md:h-[100%] h-[100%] flex lg:flex-col flex-row md:mt-0 mt-10' style={{ overflowY: 'scroll', scrollbarWidth: 'none',  }}>
                     {agents.map((agent, index)=>(
                         <motion.div key={agent.id}
-                                    className={twMerge(`flex cursor-pointer`, 
+                                    className={twMerge(`flex cursor-pointer lg:flex-col md:flex-col-reverse flex-col-reverse `, 
                                     isActive === agent.uuid? 'text-red pt-0': 'text-white')} 
                                     >
-                            <p className='text-2xl font-bold h-fit'>
+                            <p className='text-2xl font-bold h-fit ml-3 lg:ml-0'>
                                     {index +1}
                             </p>
                             <motion.p 
-                               className='font-bold text-[12vh] ml-3'
+                               className='font-bold md:text-[12vh] text-[5vh] ml-3'
                                 onClick={()=>{fetchSelectedAgent(agent.uuid); setIsActive(agent.uuid)}}
-                                animate={{ x:0 }} 
-                                whileHover={{ x: '40px' }} 
+                                animate={{ x:0, }} 
+                                whileHover={{ x: '40px',   }} 
                                 >
                                 
                                 {agent.displayName}
@@ -77,21 +77,21 @@ const Agents=()=>{
                         </motion.div>
                     ))}
                 </div>
-                <div className='col-span-4 '>
+                <div className='lg:col-span-4 md:col-span-7 col-span-7 lg:my-0 md:my-7 my-7'>
                     <div className='w-full h-full mt-10'>
                         <p></p>
                     {selectAgent ? (
-                        <motion.div className='shadow-lg shadow-slate-800 rounded-2xl h-[90vh] w-full p-6 bg-white'
+                        <motion.div className='shadow-lg shadow-slate-800 rounded-2xl md:h-[90vh] h-[100%] w-full p-6 bg-white'
                             initial={{opacity:0, y:6}}
                             animate={{opacity:1, y:1, }}
                             transition={{duration:1}}  
                         >
-                            <motion.div className='grid grid-cols-7 gap-4' key={selectAgent.uuid}>
-                                <motion.div className='col-span-4 rounded-xl  bg-red '
+                            <motion.div className='grid grid-cols-7 gap-4 md:text-base text-[5px]' key={selectAgent.uuid}>
+                                <motion.div className='col-span-4 rounded-xl  bg-red flex items-center justify-center'
                                     initial={{  opacity:0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 0.8 }}>
-                                        <img src={selectAgent.fullPortraitV2}  alt={selectAgent.displayName} className='w-full absolute z-40'/>
+                                        <img src={selectAgent.fullPortraitV2}  alt={selectAgent.displayName} className='w-full absolute z-40 '/>
                                         <img src={selectAgent.background}  alt={selectAgent.displayName} className=''/>
 
                                 </motion.div>

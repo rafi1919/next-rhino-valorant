@@ -25,7 +25,7 @@ const Footer=()=>{
                 </div>
 
                 <div className="">
-                    <p className="text-blackGrey text-center">just for portofolio</p>
+                    <p className="text-blackGrey text-center">@portofolio rafi 2024</p>
                 </div>
 
                 <ul className="grid md:grid-cols-3 grid-cols-1 justify-items-center">

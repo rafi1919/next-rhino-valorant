@@ -46,8 +46,8 @@ const AboutSection = () => {
 
 
     return (
-        <div className="w-full h-[100vh]">
-            <div className='max-w-[1000px] mx-[auto] px-6'>
+        <div className="w-full md:h-[100vh] h-[100%]">
+            <div className='max-w-[1000px] mx-[auto] p-6'>
                
                 <div className=" md:grid grid-cols-3 flex flex-row relative md:gap-3 gap-1 py-10  overflow-x-auto">
                     {events.slice(0,3).map(events=> (
