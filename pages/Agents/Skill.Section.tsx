@@ -24,29 +24,30 @@ const SkillSection: React.FC<Skill> = ({ abilities }) => {
       <div className="bg-white h-[70vh] w-[1px] ml-[11%] absolute"></div>
       <div className="max-w-[80vw] mx-auto">
         <div className="flex justify-center gap-5 py-11">
-          {abilities.map((item) => (
-            <>
-              <div key={item.slot} className="cursor-pointer">
-                <motion.div
-                  onClick={() => handleDesc(item.description)}
-                  className={twMerge(
-                    `rounded-lg p-3`,
-                    desc === item.description
-                      ? "shadow-red shadow-lg "
-                      : "border-[1px] border-[#636363]"
-                  )}
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Image
-                    src={item.displayIcon}
-                    alt={item.displayName}
-                    className="lg:w-12 lg:h-12 md:w-5 md:h-5 "
-                  />
-                </motion.div>
-              </div>
-            </>
-          ))}
+          {abilities &&
+            abilities.map((item) => (
+              <>
+                <div key={item.slot} className="cursor-pointer">
+                  <motion.div
+                    onClick={() => handleDesc(item.description)}
+                    className={twMerge(
+                      `rounded-lg p-3`,
+                      desc === item.description
+                        ? "shadow-red shadow-lg "
+                        : "border-[1px] border-[#636363]"
+                    )}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Image
+                      src={item.displayIcon}
+                      alt={item.displayName}
+                      className="lg:w-12 lg:h-12 md:w-5 md:h-5 "
+                    />
+                  </motion.div>
+                </div>
+              </>
+            ))}
         </div>
         {desc && (
           <div className="max-w-[600px] border-2 border-white p-4 rounded-lg mx-auto">
