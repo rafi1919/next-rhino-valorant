@@ -1,89 +1,96 @@
 // AboutSection.js
-import React, {useState, useEffect} from 'react'
-import {motion, useScroll, useTransform} from 'framer-motion'
-import { FaArrowRight} from "react-icons/fa";
-import dayjs from 'dayjs';
-import RoundedButton from '@/templates/LandingPage/components/RoundedButton';
+import React, { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import dayjs from "dayjs";
+import RoundedButton from "@/templates/LandingPage/components/RoundedButton";
 
-interface Events{
-    id:string
-    date: string;
-    title: string;
-    article_type: string;
-    url:string;
-    banner: { url: string }; 
-    category:{title:string}[];
+interface Events {
+  id: string;
+  date: string;
+  title: string;
+  article_type: string;
+  url: string;
+  banner: { url: string };
+  category: { title: string }[];
 }
 
 const AboutSection = () => {
-    const { scrollYProgress } = useScroll();
-    const x = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const { scrollYProgress } = useScroll();
+  const x = useTransform(scrollYProgress, [0, 1], [0, 300]);
 
-    const [events, setEvents] = useState<Events[]>([])
+  const [events, setEvents] = useState<Events[]>([]);
 
-    useEffect(()=>{
-        
-        const fetchData=async()=>{
-            try {
-                const response = await fetch('https://playvalorant.com/page-data/id-id/news/page-data.json');
-                const data = await response.json();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://playvalorant.com/page-data/id-id/news/page-data.json"
+        );
+        const data = await response.json();
 
-                if ( data.result.data.allContentstackArticles) {
-                    const articlesData = data.result.data.allContentstackArticles.nodes;
+        if (data.result.data.allContentstackArticles) {
+          const articlesData = data.result.data.allContentstackArticles.nodes;
 
-                    setEvents(articlesData);
-                } else{
-                    console.log('error')
-                }
+          setEvents(articlesData);
+        } else {
+          console.log("error");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-            } catch (error) {
-                console.error(error)
-            }
-        };
+    fetchData();
+  }, []);
 
-        fetchData()
-    }, [])
-
-
-    return (
-        <div className="w-full md:h-[100vh] h-[100%]">
-            <div className='max-w-[1000px] mx-[auto] p-6'>
-               
-                <div className=" md:grid grid-cols-3 flex flex-row relative md:gap-3 gap-1 py-10  overflow-x-auto">
-                    {events.slice(0,3).map(events=> (
-                        <motion.div key={events.id}
-                            initial={{y:0}}
-                            whileHover={{y:-30}}
-                            className='cursor-pointer	'
-                            >
-                            <div className='shadow-xl shadow-black h-full'>
-                                    <div className="bg-red w-[350px] md:w-full border-4 border-blue">
-                                            <img
-                                                src={events.banner.url}
-                                                alt="Event"
-                                                className="object-cover w-fit  transition duration-300 ease-in-out transform hover:opacity-30"
-                                            />
-                                    </div>
-                                    <div className='px-3 py-6'>
-                                        <p className="text-sm text-blackGrey font-medium py-2 ">{dayjs(events.date).format('DD/MM/YYYY')} . <span className="text-red">{events.category.map(tag => tag.title).join(', ')}</span></p>
-                                        <h5 className="text-2xl text-blackGrey font-bold">{events.title}</h5>
-                                    </div>
-                            </div>
-                        </motion.div>
-                    ))}
+  return (
+    <div className="w-full md:h-[100vh] h-[100%]">
+      <div className="max-w-[1000px] mx-[auto] p-6">
+        <div className=" md:grid grid-cols-3 flex flex-row relative md:gap-3 gap-1 py-10  overflow-x-auto">
+          {events.slice(0, 3).map((events) => (
+            <motion.div
+              key={events.id}
+              initial={{ y: 0 }}
+              whileHover={{ y: -30 }}
+              className="cursor-pointer	"
+            >
+              <div className="shadow-xl shadow-black h-full">
+                <div className="bg-red w-[350px] md:w-full border-4 border-blue">
+                  <Image
+                    src={events.banner.url}
+                    alt="Event"
+                    className="object-cover w-fit  transition duration-300 ease-in-out transform hover:opacity-30"
+                  />
                 </div>
-                 <div className='mt-7 flex justify-between items-center'>
-                    <h3 className='text-red text-[5vw] p-0 font-thin'>ARTIKEL TERBARU</h3>
-                    <RoundedButton text='Lihat semua artikel' link='/News'/>
-                </div>  
-            </div>
+                <div className="px-3 py-6">
+                  <p className="text-sm text-blackGrey font-medium py-2 ">
+                    {dayjs(events.date).format("DD/MM/YYYY")} .{" "}
+                    <span className="text-red">
+                      {events.category.map((tag) => tag.title).join(", ")}
+                    </span>
+                  </p>
+                  <h5 className="text-2xl text-blackGrey font-bold">
+                    {events.title}
+                  </h5>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
-    );
-}
+        <div className="mt-7 flex justify-between items-center">
+          <h3 className="text-red text-[5vw] p-0 font-thin">ARTIKEL TERBARU</h3>
+          <RoundedButton text="Lihat semua artikel" link="/News" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default AboutSection;
 
-{/* <div className="w-full h-[80vh] ">
+{
+  /* <div className="w-full h-[80vh] ">
 <div className="bg-black h-[80vh] w-[1px] ml-[11%] absolute"></div>
 <div className="max-w-[80vw] mx-[auto]">
     <div className='mt-7 flex justify-between'>
@@ -108,4 +115,5 @@ export default AboutSection;
         </div>
     </div>
 </div>
-</div> */}
+</div> */
+}
