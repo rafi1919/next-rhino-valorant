@@ -13,7 +13,7 @@ type Skill = {
 };
 
 const SkillSection: React.FC<Skill> = ({ abilities }) => {
-  const [desc, setDesc] = useState("");
+  const [desc, setDesc] = useState<string>("");
 
   const handleDesc = (description: string) => {
     setDesc(description);

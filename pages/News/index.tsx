@@ -1,9 +1,8 @@
 // index.tsx
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { useGetNewsData } from "./hooks";
+import { useGetNewsData } from "@/hooks";
 import LayoutPage from "@/templates/LandingPage/components/Layout";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import ReactPaginate from "react-paginate";
 
 import Link from "next/link";
@@ -43,7 +42,7 @@ export default function Index() {
               >
                 <div className="hover:shadow-md hover:shadow-red active:shadow-green-500 cursor-pointer h-full grid grid-cols-5  my-5">
                   <div className="lg:col-span-2 md:col-span-5 col-span-5 bg-red w-full border-4 border-blue">
-                    <Image
+                    <img
                       src={item.banner.url}
                       alt="Event"
                       className="object-cover w-full transition duration-300 ease-in-out transform hover:opacity-30"

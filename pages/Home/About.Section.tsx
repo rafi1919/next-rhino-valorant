@@ -1,7 +1,7 @@
 // AboutSection.js
 import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
+import { FaArrowRight } from "react-icons/fa";
 import dayjs from "dayjs";
 import RoundedButton from "@/templates/LandingPage/components/RoundedButton";
 
@@ -57,7 +57,7 @@ const AboutSection = () => {
             >
               <div className="shadow-xl shadow-black h-full">
                 <div className="bg-red w-[350px] md:w-full border-4 border-blue">
-                  <Image
+                  <img
                     src={events.banner.url}
                     alt="Event"
                     className="object-cover w-fit  transition duration-300 ease-in-out transform hover:opacity-30"

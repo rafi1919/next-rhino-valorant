@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import LayoutPage from "@/templates/LandingPage/components/Layout";
-import { useGetNewsDetail } from "../hooks";
+import { useGetNewsDetail } from "@/hooks";
 
 export default function Index() {
   const router = useRouter();
@@ -28,7 +27,7 @@ export default function Index() {
             <p>Loading...</p>
           ) : stateData.length > 0 ? (
             <>
-              <Image src={stateData[0].banner.url} className="w-full" alt="" />
+              <img src={stateData[0].banner.url} className="w-full" />
               <p className="text-[50px] text-blackGrey font-bold">
                 {stateData[0].description}
               </p>
