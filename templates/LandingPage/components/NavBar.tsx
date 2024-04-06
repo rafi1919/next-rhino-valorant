@@ -57,7 +57,7 @@ const Navbar = () => {
 
   return (
     <div className="relative z-10">
-      <div className="fixed rounded-full h-[40px] w-[40px] flex items-center justify-center m-11 bg-black">
+      <div className="fixed rounded-full h-[40px] w-[40px] flex items-center justify-center m-11 bg-black z-90">
         <BsGrid3X3GapFill
           onClick={toggleNavbar}
           className="fixed text-white font-lg"
@@ -79,30 +79,23 @@ const Navbar = () => {
             <NavbarItem />
 
             <div className="absolute bottom-1">
-            <svg id="progress" width="70" height="70" viewBox="0 0 100 100" >
-              <circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-              />
-              <motion.circle
-                cx="50"
-                cy="50"
-                r="30"
-                pathLength="1"
-                className="indicator "
-          
-                style={{ 
-                  pathLength: scrollYProgress, 
-                  stroke: "red",
-                  strokeWidth: 10,
-                  fill: '#111111',
-                 }} // Adjust stroke color here if needed
-              />
-            </svg>
+              <svg id="progress" width="70" height="70" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="30" pathLength="1" />
+                <motion.circle
+                  cx="50"
+                  cy="50"
+                  r="30"
+                  pathLength="1"
+                  className="indicator "
+                  style={{
+                    pathLength: scrollYProgress,
+                    stroke: "red",
+                    strokeWidth: 10,
+                    fill: "#111111",
+                  }} // Adjust stroke color here if needed
+                />
+              </svg>
             </div>
-
           </motion.div>
         ) : null}
       </AnimatePresence>

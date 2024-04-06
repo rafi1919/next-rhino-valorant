@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
-import Image from "next/image";
 
 type Skill = {
   abilities: {
@@ -39,7 +38,7 @@ const SkillSection: React.FC<Skill> = ({ abilities }) => {
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Image
+                    <img
                       src={item.displayIcon}
                       alt={item.displayName}
                       className="lg:w-12 lg:h-12 md:w-5 md:h-5 "

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import SkillSection from "./Skill.Section";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 interface AgentProps {
   id: string;
@@ -62,7 +61,7 @@ const Agents = () => {
           Your browser does not support the video tag.
         </video>
 
-        <div className="lg:max-w-[80vw] md:w-full w-full mx-auto relative z-10">
+        <div className="lg:max-w-[80vw] md:w-full w-full mx-auto relative z-8">
           <div className="grid lg:grid-cols-7 ">
             <div
               className="lg:col-span-3 md:col-span-7 col-span-7 overflow-y-auto no-scrollbar lg:h-[100vh] md:h-[100%] h-[100%] flex lg:flex-col flex-row md:mt-0 mt-10"
@@ -113,12 +112,12 @@ const Agents = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.8 }}
                       >
-                        <Image
+                        <img
                           src={selectAgent.fullPortraitV2}
                           alt={selectAgent.displayName}
                           className="w-full absolute z-40 "
                         />
-                        <Image
+                        <img
                           src={selectAgent.background}
                           alt={selectAgent.displayName}
                           className=""
@@ -132,7 +131,7 @@ const Agents = () => {
                           transition={{ duration: 0.5, delay: 0.8 }}
                         >
                           <div className="bg-black flex flex-col items-center justify-center rounded-lg w-full h-[40%]">
-                            <Image
+                            <img
                               src={selectAgent.role.displayIcon}
                               alt={selectAgent.displayName}
                               className="p-3"
@@ -165,7 +164,7 @@ const Agents = () => {
                       transition={{ opacity: 1, duration: 2, repeat: Infinity }}
                       exit={{ opacity: 0, transition: { duration: 0.5 } }}
                     >
-                      <Image
+                      <img
                         src="https://playvalorant.com/static/agents-group-31d7ce5a3637e45d8b25d2fd03159e6c.png"
                         width={700}
                         height={700}
