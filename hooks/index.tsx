@@ -8,9 +8,7 @@ export const useGetNewsData = () => {
     setLoading(true);
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://playvalorant.com/page-data/id-id/news/page-data.json`
-        );
+        const response = await fetch("/api/fetchDataNews");
         const responseData = await response.json();
 
         if (responseData.result.data.allContentstackArticles) {
@@ -44,9 +42,7 @@ export const useGetNewsDetail = ({ id }: { id: string }) => {
     const fetchData = async () => {
       try {
         // Fetch the news article based on its id to get the pathSlug
-        const responseId = await fetch(
-          `https://playvalorant.com/page-data/id-id/news/page-data.json`
-        );
+        const responseId = await fetch("/api/fetchDataNews");
         const responseDataId = await responseId.json();
 
         if (responseDataId.result.data.allContentstackArticles) {
@@ -68,7 +64,7 @@ export const useGetNewsDetail = ({ id }: { id: string }) => {
                 responseDataDetail.result.data.contentstackArticles;
               setData(articlesDataDetail);
 
-              console.log(articlesDataDetail);
+              // console.log(articlesDataDetail);
             } else {
               console.log("error");
             }

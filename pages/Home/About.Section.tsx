@@ -24,9 +24,7 @@ const AboutSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          "https://playvalorant.com/page-data/id-id/news/page-data.json"
-        );
+        const response = await fetch("/api/fetchDataNews");
         const data = await response.json();
 
         if (data.result.data.allContentstackArticles) {

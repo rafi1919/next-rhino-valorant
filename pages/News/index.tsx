@@ -17,7 +17,6 @@ export default function Index() {
     if (data && data.length > 0) {
       setStateData((prev) => [...prev, ...data]);
     }
-    console.log(data);
   }, [data, loading]);
 
   const itemsPerPage = 6;
